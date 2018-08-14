@@ -9,6 +9,20 @@
 import UIKit
 
 class RestaurantesTableViewController: UITableViewController {
+    
+    var restaurantNames = ["Cafe Deadend", "Homei", "Teacka", "Cafe Lois", "Petite Oy", "For Kee Restaurant",
+                           "Po's Atelier", "Bourkee Street", "Haighs Choice", "Palominno Esspreso", "Upstate",
+                           "Traif", "Graham Avenue", "Waffle & Wolf", "Five Leaves", "Cafe Lore", "Confessional", "Barrafina", "Donostia", "Royal Oak", "CASK Pub And Kitcken"]
+    
+    var restaurantImages = ["cafedeadend","homei", "teakha", "cafeloisl", "petiteoyster", "forkeerestaurant",
+                            "posatelier", "bourkestreetbakery", "haighschocolate", "palominoespresso", "upstate", "traif", "grahamavenuemeats", "wafflewolf", "fiveleaves",
+                            "cafelore", "confessional", "barrafina", "donostia", "royaloak", "caskpubkitchen"]
+    
+    var restaurantLocations = ["Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong",
+                               "Sidney", "Sidney", "Sidney", "New York", "New York", "New York", "New York", "New York",
+                               "New York", "New York", "London", "London", "London", "London"]
+    
+    var restaurantTypes = ["Coffee & Tea Shop", "Cafe", "Tea House", "Austrian Coffee", "French", "Bakery", "Chocolate", "Cafe", "American Seafood", "American", "American","Breakfast", "Coffee & Tea", "Coffee & Tea", "Latin American", "Spanish", "Spanish", "Spanish", "British", "Thai", "Thai"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,23 +43,31 @@ class RestaurantesTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return restaurantNames.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
         // Configure the cell...
+        
+        let cellIdentifier = "Cell"
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RestaurantTableViewCell
+        
+        cell.name.text = restaurantNames[indexPath.row]
+        cell.location.text = restaurantLocations[indexPath.row]
+        cell.title.text = restaurantTypes[indexPath.row]
+        cell.restaurabtImage.image = UIImage(named: restaurantImages[indexPath.row])
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
